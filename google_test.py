@@ -23,3 +23,5 @@ def test_able_to_find_selene_in_google(open_browser):
 
 def test_unable_to_find_invalid_search_result_in_google(open_browser):
     test_search(invalid_search_query, have.no.texts())
+
+# a comment to cause a merge conflict
