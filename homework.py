@@ -3,8 +3,6 @@
 # Вызовите ее внутри функций, описанных ниже
 # Подсказка: Имя функции можно получить с помощью func.__name__
 
-import inspect
-
 def open_browser(browser_name):
     pass
 
@@ -18,13 +16,12 @@ def find_registration_button_on_login_page(page_url, button_text):
 
 def print_func_data(func):
     name = func.__name__
-    args  = str(inspect.signature(func))
+    args = func.__code__.co_varnames
     print(f"Имя: {name}")
-    # if the args are only ()
-    if len(args) == 2:
+    if args == ():
         print("Аргументов нет")
     else:
-        print(f"Аргументы: {args}")
+        print(f"Аргументы: {', '.join(args)}")
 
 print_func_data(find_registration_button_on_login_page)
 
